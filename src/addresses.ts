@@ -13,7 +13,7 @@ type ChainAddresses = {
   v1MixedRouteQuoterAddress?: string
 }
 
-const DEFAULT_NETWORKS = [ChainId.MAINNET, ChainId.GOERLI]
+const DEFAULT_NETWORKS = [ChainId.FUSE]
 
 function constructSameAddressMap(address: string, additionalNetworks: ChainId[] = []): AddressMap {
   return DEFAULT_NETWORKS.concat(additionalNetworks).reduce<AddressMap>((memo, chainId) => {
@@ -30,11 +30,17 @@ export const UNI_ADDRESSES: AddressMap = constructSameAddressMap('0x1f9840a85d5a
   ChainId.SEPOLIA
 ])
 
-export const UNISWAP_NFT_AIRDROP_CLAIM_ADDRESS = '0x8B799381ac40b838BBA4131ffB26197C432AFe78'
-
-export const V2_FACTORY_ADDRESS = '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f'
-export const V2_FACTORY_ADDRESSES: AddressMap = constructSameAddressMap(V2_FACTORY_ADDRESS)
-export const V2_ROUTER_ADDRESS = '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'
+export const V2_FACTORY_ADDRESS = '0x1998E4b0F1F922367d8Ec20600ea2b86df55f34E'
+export const V2_FACTORY_ADDRESSES: AddressMap = constructSameAddressMap(V2_FACTORY_ADDRESS, [
+  ChainId.POLYGON,
+  ChainId.OPTIMISM,
+  ChainId.CELO,
+  ChainId.ARBITRUM_ONE,
+  ChainId.BNB,
+  ChainId.AVALANCHE,
+  ChainId.BASE
+])
+export const V2_ROUTER_ADDRESS = '0xE3F85aAd0c8DD7337427B9dF5d0fB741d65EEEB5'
 export const V2_ROUTER_ADDRESSES: AddressMap = constructSameAddressMap(V2_ROUTER_ADDRESS)
 
 // Networks that share most of the same addresses i.e. Mainnet, Goerli, Optimism, Arbitrum, Polygon
@@ -135,6 +141,16 @@ const BASE_GOERLI_ADDRESSES: ChainAddresses = {
   swapRouter02Address: '0x8357227D4eDc78991Db6FDB9bD6ADE250536dE1d'
 }
 
+// Fuse v3 addresses
+const FUSE_ADDRESSES: ChainAddresses = {
+  v3CoreFactoryAddress: '0x69D8De64ad540D68B94C47D87ECafaA9319515d3',
+  multicallAddress: '0x72cBBd81E7816766A75B98c8f4BcbebcF86D14b0',
+  quoterAddress: '0x259F85f604D5175Fdc7e56e2f77e80Bd60140989',
+  v3MigratorAddress: '0xE2952E17Cf523217FD21Bfb018B0f16B2a16E2C6',
+  nonfungiblePositionManagerAddress: '0x645311AF1C88929Fc7e784F8c115D7047d3Ab2CB',
+  tickLensAddress: '0x49a96cCf7c536B97f068a46889218C346E18B1b9'
+}
+
 export const CHAIN_TO_ADDRESSES_MAP: Record<SupportedChainsType, ChainAddresses> = {
   [ChainId.MAINNET]: MAINNET_ADDRESSES,
   [ChainId.OPTIMISM]: OPTIMISM_ADDRESSES,
@@ -149,7 +165,8 @@ export const CHAIN_TO_ADDRESSES_MAP: Record<SupportedChainsType, ChainAddresses>
   [ChainId.ARBITRUM_GOERLI]: ARBITRUM_GOERLI_ADDRESSES,
   [ChainId.SEPOLIA]: SEPOLIA_ADDRESSES,
   [ChainId.AVALANCHE]: AVALANCHE_ADDRESSES,
-  [ChainId.BASE_GOERLI]: BASE_GOERLI_ADDRESSES
+  [ChainId.BASE_GOERLI]: BASE_GOERLI_ADDRESSES,
+  [ChainId.FUSE]: FUSE_ADDRESSES
 }
 
 /* V3 Contract Addresses */
