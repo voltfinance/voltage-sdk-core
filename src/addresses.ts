@@ -143,12 +143,12 @@ const BASE_GOERLI_ADDRESSES: ChainAddresses = {
 
 // Fuse v3 addresses
 const FUSE_ADDRESSES: ChainAddresses = {
-  v3CoreFactoryAddress: '0x69D8De64ad540D68B94C47D87ECafaA9319515d3',
-  multicallAddress: '0x72cBBd81E7816766A75B98c8f4BcbebcF86D14b0',
-  quoterAddress: '0x259F85f604D5175Fdc7e56e2f77e80Bd60140989',
-  v3MigratorAddress: '0xE2952E17Cf523217FD21Bfb018B0f16B2a16E2C6',
-  nonfungiblePositionManagerAddress: '0x645311AF1C88929Fc7e784F8c115D7047d3Ab2CB',
-  tickLensAddress: '0x49a96cCf7c536B97f068a46889218C346E18B1b9'
+  v3CoreFactoryAddress: '0x9e30D4834605914F9b9806fa18B5862Aa2A818e9',
+  multicallAddress: '0x0dC9b928114BB47AE70f657115FbEca28cA4645D',
+  quoterAddress: '0x02C432130b96E7eB0B907017B8f331a578fc805b',
+  v3MigratorAddress: '0xAe6991D81bF9A8dD481458e1a5C508e873Fe923E',
+  nonfungiblePositionManagerAddress: '0x4c84306e49EA4248C835deD2266955e5032313Fe',
+  tickLensAddress: '0xd62266C8B6DfFa4Aa2Eb2472c2152C0f2515207C'
 }
 
 export const CHAIN_TO_ADDRESSES_MAP: Record<SupportedChainsType, ChainAddresses> = {
