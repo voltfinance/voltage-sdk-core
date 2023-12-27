@@ -1,4 +1,4 @@
-pimport JSBI from 'jsbi'
+import JSBI from 'jsbi'
 import invariant from 'tiny-invariant'
 
 import { BigintIsh, Rounding } from '../../constants'
