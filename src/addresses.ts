@@ -13,7 +13,7 @@ type ChainAddresses = {
   v1MixedRouteQuoterAddress?: string
 }
 
-const DEFAULT_NETWORKS = [ChainId.MAINNET, ChainId.GOERLI, ChainId.SEPOLIA]
+const DEFAULT_NETWORKS = [ChainId.FUSE]
 
 function constructSameAddressMap(address: string, additionalNetworks: ChainId[] = []): AddressMap {
   return DEFAULT_NETWORKS.concat(additionalNetworks).reduce<AddressMap>((memo, chainId) => {
@@ -30,9 +30,7 @@ export const UNI_ADDRESSES: AddressMap = constructSameAddressMap('0x1f9840a85d5a
   ChainId.SEPOLIA
 ])
 
-export const UNISWAP_NFT_AIRDROP_CLAIM_ADDRESS = '0x8B799381ac40b838BBA4131ffB26197C432AFe78'
-
-export const V2_FACTORY_ADDRESS = '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f'
+export const V2_FACTORY_ADDRESS = '0x1998E4b0F1F922367d8Ec20600ea2b86df55f34E'
 export const V2_FACTORY_ADDRESSES: AddressMap = constructSameAddressMap(V2_FACTORY_ADDRESS, [
   ChainId.POLYGON,
   ChainId.OPTIMISM,
@@ -42,7 +40,7 @@ export const V2_FACTORY_ADDRESSES: AddressMap = constructSameAddressMap(V2_FACTO
   ChainId.AVALANCHE,
   ChainId.BASE
 ])
-export const V2_ROUTER_ADDRESS = '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'
+export const V2_ROUTER_ADDRESS = '0xE3F85aAd0c8DD7337427B9dF5d0fB741d65EEEB5'
 export const V2_ROUTER_ADDRESSES: AddressMap = constructSameAddressMap(V2_ROUTER_ADDRESS)
 
 // Networks that share most of the same addresses i.e. Mainnet, Goerli, Optimism, Arbitrum, Polygon
@@ -153,6 +151,16 @@ const BASE_GOERLI_ADDRESSES: ChainAddresses = {
   swapRouter02Address: '0x8357227D4eDc78991Db6FDB9bD6ADE250536dE1d'
 }
 
+// Fuse v3 addresses
+const FUSE_ADDRESSES: ChainAddresses = {
+  v3CoreFactoryAddress: '0xaD079548b3501C5F218c638A02aB18187F62b207',
+  multicallAddress: '0x607F5841eFf0505d3c7A868558aD4562fD176C8F',
+  quoterAddress: '0x10c8a73987069b366c2bea9c8070DCF2F3E73e9D',
+  v3MigratorAddress: '0xBC213bd2eDE79aBD0EeE9Dc4Ff565DdCf19Fe631',
+  nonfungiblePositionManagerAddress: '0xE38b82A4829B21a0b179E40E64ab7b1e5aedE119',
+  tickLensAddress: '0xcFA73c021535F4FAF2B2b97EEc94AAE7527B4BdE'
+}
+
 export const CHAIN_TO_ADDRESSES_MAP: Record<SupportedChainsType, ChainAddresses> = {
   [ChainId.MAINNET]: MAINNET_ADDRESSES,
   [ChainId.OPTIMISM]: OPTIMISM_ADDRESSES,
@@ -167,8 +175,8 @@ export const CHAIN_TO_ADDRESSES_MAP: Record<SupportedChainsType, ChainAddresses>
   [ChainId.ARBITRUM_GOERLI]: ARBITRUM_GOERLI_ADDRESSES,
   [ChainId.SEPOLIA]: SEPOLIA_ADDRESSES,
   [ChainId.AVALANCHE]: AVALANCHE_ADDRESSES,
-  [ChainId.BASE]: BASE_ADDRESSES,
-  [ChainId.BASE_GOERLI]: BASE_GOERLI_ADDRESSES
+  [ChainId.BASE_GOERLI]: BASE_GOERLI_ADDRESSES,
+  [ChainId.FUSE]: FUSE_ADDRESSES
 }
 
 /* V3 Contract Addresses */
